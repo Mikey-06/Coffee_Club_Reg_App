@@ -1,2 +1,2 @@
-## DevOps Project for Beginners   
+## Coffee Club Registration App
 
