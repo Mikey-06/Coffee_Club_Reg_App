@@ -37,6 +37,11 @@ pipeline {
                 sh 'docker push mikey6/coffe-club-reg-app:$BUILD_NUMBER'
             }
         }
+
+        stage('Trigger ManifestUpdate') {
+                echo "triggering Coffe_Club_Reg_App(Update-Manifest)"
+                build job: 'Coffe_Club_Reg_App(Update-Manifest)', parameters: [string(name: 'DOCKERTAG', value: $BUILD_NUMBER)]
+
     }    
 
     post {
