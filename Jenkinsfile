@@ -12,7 +12,7 @@ node{
 
   stage('Build image') {
   
-       app = docker.build("mikey6/coffe-club-reg-app")
+       app = docker.build("mikey6/coffee-club-reg-app")
   }
 
   stage('Push image') {
