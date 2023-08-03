@@ -1,10 +1,10 @@
 
 node{
   def mavenHome = tool name: 'maven'
-  stage('1cloneCode'){
+  stage('Clone Code'){
     git branch: 'main', url: 'https://github.com/Mikey-06/Coffee_Club_Reg_App.git'
   }
-  stage('2Test&Build'){
+  stage('Test & Build'){
     sh "${mavenHome}/bin/mvn clean package"
   }
 
@@ -23,8 +23,8 @@ node{
     }
 
   stage('Trigger ManifestUpdate') {
-        echo "triggering Coffe_Club_Reg_App(Update-Manifest)"
-        build job: 'Coffe_Club_Reg_App(Update-Manifest)', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+        echo "triggering Coffee_Club_Reg_App(Update-Manifest)"
+        build job: 'Coffee_Club_Reg_App(Update-Manifest)', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
     }
 
 }
